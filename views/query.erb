@@ -1,0 +1,10 @@
+<h1>Pickaxe Stats</h1>
+<p>
+<%=
+    s = TCPSocket.new '192.168.1.100', 4028
+    s.puts '{"command" : "summary"}'
+    output = s.gets
+    s.close
+    output
+%> 
+</p>
