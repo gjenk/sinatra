@@ -1,10 +1,17 @@
 <h1>Pickaxe Stats</h1>
-<p>
+<ul class="nav nav-tabs">
+    <li>
+        <a href="/index">Home</a>
+    </li>
+    <li class="active">
+        <a href="#">Query</a>
+    </li>
+</ul>
+<form method="get" action="query">
+    CGMiner Query: <input type="text" name="querytext">
+    <input class="btn btn-primary" type="button" value="Go!" >
+</form>
+
 <%=
-    s = TCPSocket.new '192.168.1.100', 4028
-    s.puts '{"command" : "summary"}'
-    output = s.gets
-    s.close
-    output
-%> 
-</p>
+     ask params[:querytext]
+%>
