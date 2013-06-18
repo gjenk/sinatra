@@ -1,3 +1,9 @@
+# push.rb queries the local CGMiner software and pushes the json
+# recieved to the Heroku web server using a PUT
+#
+# push.rb can take an optional argument which is the command sent to the
+# CGMiner. If no command is given, it defaults to "summary"
+
 require 'socket'
 require 'rest_client'
 require 'json'
