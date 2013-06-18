@@ -16,9 +16,19 @@ helpers do
         s.puts str
         json = s.gets
         s.close
-        json = JSON.parse(json.strip!)
-        return JSON.pretty_generate(json)
+        return json.strip!
     end
+
+    def push(host, data)
+        
+        path = "/users/1/workers/1"
+        host = "https://miningmonitor.herokuapp.com"
+
+        puts "sending data to #{host}#{path}"
+
+        return RestClient.put "#{host}#{path}", data, {:content_type => :json} 
+    end
+
 end
 
 get '/' do
