@@ -16,7 +16,8 @@ helpers do
         s.puts str
         json = s.gets
         s.close
-        return JSON.parse(json.strip!)
+        json = JSON.parse(json.strip!)
+        return JSON.pretty_generate(json)
     end
 end
 
@@ -29,11 +30,6 @@ get '/index' do
 end
 
 get '/query' do
-    erb :query, :locals => {:option  => params[nil]}
-end
-
-get '/query/:option' do
-    out = ask (params[:option])
-    "#{out}"
+    erb :query
 end
 
